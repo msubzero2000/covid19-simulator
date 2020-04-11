@@ -46,10 +46,8 @@ function socialDistanceLabel(value) {
             return 'poor'
             break
         case 1:
-            return 'moderate'
-            break
-        case 2:
             return 'good'
+            break
     }
 }
 
@@ -85,8 +83,8 @@ function restartSimulation() {
         stageHeight: 600,
         simulationDuration: 45, // 45 secs
         numTargetsToVisit: 6,
-        infectedRadius: 25,
-        infectionProbabiltyOnContact: 0.05,  // 5% chance of getting infected if within infected radius
+        infectedRadius: 30,
+        infectionProbabiltyOnContact: 0.1,  // 10% chance of getting infected if within infected radius
         maxTimeForPersonToBeActive: 60, // 60 sec
         entrance: {
             x: 200,

@@ -16,7 +16,7 @@ class Place {
         this.renderBodies = new Array()
 
         this.engine = Engine.create();
-        this.engine.timing.timeScale = 1.0
+        this.engine.timing.timeScale = 1
         this.engine.world.gravity.scale = 0;
         this.render = Render.create({
             canvas: canvas,
@@ -178,21 +178,24 @@ class Place {
 
         context.font = "13px Arial"
         let fadeDuration = 2
-        if (progress >= 100) {
-            let fade = Math.min((progress - 100) / fadeDuration, 0.8)
+        let finalProgress = 100
+        let yOffset = 100
+
+        if (progress >= finalProgress) {
+            let fade = Math.min((progress - finalProgress) / fadeDuration, 0.8)
 
             context.fillStyle = "rgba(0, 0, 0, " + fade + ")"
             context.fillRect(0, 0, this.config.stageWidth, this.config.stageHeight)
 
-            if (progress >= 100 + fadeDuration) {
-                context.font = "35px Arial"
+            if (progress >= finalProgress + fadeDuration) {
+                context.font = "40px Arial"
                 context.fillStyle = "rgb(220, 220, 220)"
-                context.fillText("Completed", 220, 300)
+                context.fillText("Completed", 220, 200 + yOffset)
 
-                context.font = "20px Arial"
+                context.font = "30px Arial"
                 context.fillStyle = "rgb(238, 197, 23)"
                 let newInfectionStr = "Infection Rate " + infectionRate + "%"
-                context.fillText(newInfectionStr, 230, 340)
+                context.fillText(newInfectionStr, 195, 450 - yOffset)
             }
             this.active = false
         } else {
@@ -205,24 +208,24 @@ class Place {
         context.lineTo(565, 60);
         context.stroke();
 
-        let offset = 60
-        context.font = "18px Arial"
+        let offset = 30
+        context.font = "23px Arial"
         context.fillStyle = "Gray"
-        context.fillText("Entered:", offset, 50);
+        context.fillText("Enters:", 5 + offset, 50);
         context.fillStyle = "rgb(58, 136, 254)"
-        context.fillText("Healthy:", 120 + offset, 50);
+        context.fillText("Healthy:", 130 + offset, 50);
         context.fillStyle = "rgb(255, 100, 100)"
-        context.fillText("Sick:", 245 + offset, 50);
+        context.fillText("Sick:", 265 + offset, 50);
         context.fillStyle = "rgb(238, 197, 23)"
-        context.fillText("Infected:", 340 + offset, 50);
+        context.fillText("Infected:", 355 + offset, 50);
 
-        context.font = "18px Arial"
+        context.font = "23px Arial"
         context.fillStyle = "rgb(220, 220, 220)"
         context.fillText(this.stats.numPeopleEntered, 80 + offset, 50);
-        context.fillText(this.stats.numPeopleEntered - this.stats.numSickPeopleEntered, 200 + offset, 50);
-        context.fillText(this.stats.numSickPeopleEntered, 295 + offset, 50);
+        context.fillText(this.stats.numPeopleEntered - this.stats.numSickPeopleEntered, 220 + offset, 50);
+        context.fillText(this.stats.numSickPeopleEntered, 320 + offset, 50);
 
         let curNewInfectionStr = this.stats.numSickPeopleAcquired.toString() + " (" + infectionRate.toString() + "%)"
-        context.fillText(curNewInfectionStr, 420 + offset, 50);
+        context.fillText(curNewInfectionStr, 445 + offset, 50);
     }
 }

@@ -18,16 +18,12 @@ class Person extends Actor {
 
         switch (socialDistanceFactor) {
             case 0:
-                socialDistanceScore = 0
+                this.socialDistance = this.radius * 2.5
                 break
             case 1:
-                socialDistanceScore = 0.5
-                break
-            case 2:
-                socialDistanceScore = 0.75
+                this.socialDistance = this.radius * 3.5
                 break
         }
-        this.socialDistance = this.radius * 2 + 15 * socialDistanceScore
         this.condition = condition.HEALTHY
         this.activeTimer = null
     }
@@ -166,7 +162,7 @@ class Person extends Actor {
             let pushVec = Vector.neg(this.vectorFrom(obj))
             let length = Vector.magnitude(pushVec)
 
-            if (length <= this.socialDistance) {
+            if (this.socialDistance >= 0 && length <= this.socialDistance) {
                 let pushForce = Math.min(this.socialDistanceFactor / length, 0.001)
                 let pushVecScaled = Vector.mult(Vector.normalise(pushVec), pushForce)
                 Body.applyForce(this.body, {x: this.body.position.x, y: this.body.position.y},

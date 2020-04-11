@@ -7,61 +7,57 @@
 </head>
 <body>
 <h2>COVID-19 Social distancing simulation at the supermarket</h2>
-<table>
-    <tr>
-        <td>
-            <canvas id="render"></canvas>
-        </td>
-        <td valign="top">
-            <div class="controlContainer">
-             <ul style="list-style-type:none;">
-                 <li>
-                     <div class="label">Social distance compliancy:</div>
-                     <input type="range" min="0" max="2" value="0" class="slider" id="socialDistanceSlider">
-                     <div class="value" id="socialDistanceOutput">
-                         50
-                     </div>
-                 </li>
-                 <br>
-                 <li>
-                     <div class="label">Restrict the number of people enters to:</div>
-                     <input type="range" min="10" max="50" value="25" step="5" class="slider" id="maxPersonPerSiteSlider">
-                     <div class="value" id="maxPersonPerSiteOutput">
-                         10 at a time
-                     </div>
-                 </li>
-                 <br>
-                 <li>
-                     <div class="label">Number of sick people enters for every 10 people:</div>
-                     <input type="range" min="1" max="9" value="1" class="slider" id="numberOfSickPeopleEnteredSlider">
-                     <div class="value" id="numberOfSickPeopleEnteredOutput">
-                         1 every 10
-                     </div>
-                 </li>
-                 <!--<br>-->
-                 <!--<li>-->
-                     <!--<div class="label">Number of people to simulate:</div>-->
-                     <!--<input type="range" min="10" max="100" value="75" step="5" class="slider" id="numberPersonSlider">-->
-                     <!--<div class="value" id="numberPersonOutput">-->
-                         <!--100-->
-                     <!--</div>-->
-                 <!--</li>-->
-                 <br><br><br><br>
-                 <li>
-                     <input type="button" value="Start Simulation" class="button" id="restartSimulation">
-                 </li>
-                 <li>
-                     <br><br>
-                     <div class="link">
-                     <a href="https://www.linkedin.com/in/agustinus-nalwan">Agustinus Nalwan</a> -
-                     <a href="https://github.com/msubzero2000/covid19-simulator">Source Code</a>
-                     </div>
-                 </li>
-             </ul>
-            </div>
-        </td>
-    </tr>
-</table>
+<div class="row">
+    <div class="render">
+        <canvas id="render"></canvas>
+    </div>
+    <div class="control">
+     <ul style="list-style-type:none;">
+         <li>
+             <div class="label">Social distance compliancy:</div>
+             <input type="range" min="0" max="1" value="0" class="slider" id="socialDistanceSlider">
+             <div class="value" id="socialDistanceOutput">
+                 50
+             </div>
+         </li>
+         <br>
+         <li>
+             <div class="label">Restrict the number of people enters to:</div>
+             <input type="range" min="10" max="50" value="25" step="5" class="slider" id="maxPersonPerSiteSlider">
+             <div class="value" id="maxPersonPerSiteOutput">
+                 10 at a time
+             </div>
+         </li>
+         <br>
+         <li>
+             <div class="label">Number of sick people enters for every 10 people:</div>
+             <input type="range" min="1" max="9" value="1" class="slider" id="numberOfSickPeopleEnteredSlider">
+             <div class="value" id="numberOfSickPeopleEnteredOutput">
+                 1 every 10
+             </div>
+         </li>
+         <!--<br>-->
+         <!--<li>-->
+             <!--<div class="label">Number of people to simulate:</div>-->
+             <!--<input type="range" min="10" max="100" value="75" step="5" class="slider" id="numberPersonSlider">-->
+             <!--<div class="value" id="numberPersonOutput">-->
+                 <!--100-->
+             <!--</div>-->
+         <!--</li>-->
+         <br><br><br><br>
+         <li>
+             <input type="button" value="Start Simulation" class="button" id="restartSimulation">
+         </li>
+         <li>
+             <br><br>
+             <div class="link">
+             <a href="https://www.linkedin.com/in/agustinus-nalwan">Agustinus Nalwan</a> -
+             <a href="https://github.com/msubzero2000/covid19-simulator">Source Code</a>
+             </div>
+         </li>
+     </ul>
+    </div>
+</div>
 <script src="matter.js"></script>
 <script src="actor.js"></script>
 <script src="place.js"></script>
