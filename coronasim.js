@@ -40,27 +40,59 @@ class CoronaSim {
     }
 }
 
-function socialDistanceLabel(value) {
-    switch (parseInt(value)) {
-        case 0:
-            return 'poor'
-            break
-        case 1:
-            return 'good'
-            break
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+function getParams() {
+    var params = getUrlVars()
+
+    let sdc = params['sdc']
+    if (sdc == null) {
+        sdc = "0"
+    } else {
+        sdc  = Math.min(Math.max(0, parseInt(sdc)), 1)
+    }
+    let maxPerPerson = params['mposl']
+    if (maxPerPerson == null) {
+        maxPerPerson = 10
+    } else {
+        maxPerPerson  = Math.min(Math.max(10, parseInt(maxPerPerson)), 50)
+    }
+    let numSickPeople = params['numSick']
+    if (numSickPeople == null) {
+        numSickPeople = 1
+    } else {
+        numSickPeople  = Math.min(Math.max(1, parseInt(numSickPeople)), 9)
+    }
+    return {
+        sdc: sdc,
+        maxPerPerson: maxPerPerson,
+        numSickPeople: numSickPeople
     }
 }
 
+params = getParams()
 let socialDistancePoorRadio = document.getElementById("sdPoorRadio");
 let socialDistanceGoodRadio = document.getElementById("sdGoodRadio");
-socialDistancePoorRadio.value = "1"
+if (params.sdc == 0) {
+    socialDistancePoorRadio.checked = true
+} else{
+    socialDistanceGoodRadio.checked = true
+}
 
 let maxPersonPerSiteSlider = document.getElementById("maxPersonPerSiteSlider");
 let maxPersonPerSiteOutput = document.getElementById("maxPersonPerSiteOutput");
+maxPersonPerSiteSlider.value = params.maxPerPerson
 maxPersonPerSiteOutput.innerHTML = maxPersonPerSiteSlider.value + " at a time";
 
 let numberOfSickPersonSlider = document.getElementById("numberOfSickPeopleEnteredSlider");
 let numberOfSickPersonOutput = document.getElementById("numberOfSickPeopleEnteredOutput");
+numberOfSickPersonSlider.value = params.numSickPeople
 numberOfSickPersonOutput.innerHTML = numberOfSickPersonSlider.value + " in 10";
 
 let restartButton = document.getElementById("restartSimulation");
