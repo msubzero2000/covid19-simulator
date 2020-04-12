@@ -65,7 +65,7 @@ h2 {
 .radio-toolbar label {
     display: inline-block;
     background-color: #ddd;
-    padding: 5px 20px;
+    padding: 5px 15px;
     font-family: sans-serif, Arial;
     font-size: 14px;
     border: 2px solid #444;
@@ -129,12 +129,13 @@ h2 {
     .radio-toolbar label {
         display: inline-block;
         background-color: #ddd;
-        padding: 5px 20px;
+        padding: 25px 30px;
         font-family: sans-serif, Arial;
-        font-size: 35px;
+        font-size: 14px;
         border: 2px solid #444;
         border-radius: 4px;
     }
+
 
     .slider {
         -webkit-appearance: none;
