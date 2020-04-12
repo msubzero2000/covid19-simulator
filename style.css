@@ -52,6 +52,35 @@ h2 {
     font-size: 15px;
 }
 
+.radio-toolbar {
+    padding: 2px;
+}
+
+.radio-toolbar input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.radio-toolbar label {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 5px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 14px;
+    border: 2px solid #444;
+    border-radius: 4px;
+}
+
+.radio-toolbar label:hover {
+    background-color: #dfd;
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color: #bfb;
+    border-color: #4c4;
+}
+
 .slider {
     -webkit-appearance: none;
     width: 100%;
@@ -97,6 +126,15 @@ h2 {
         border-radius: 4px;
         font-family: "Arial";
     }
+    .radio-toolbar label {
+        display: inline-block;
+        background-color: #ddd;
+        padding: 5px 20px;
+        font-family: sans-serif, Arial;
+        font-size: 35px;
+        border: 2px solid #444;
+        border-radius: 4px;
+    }
 
     .slider {
         -webkit-appearance: none;
@@ -121,7 +159,7 @@ h2 {
         appearance: none;
         width: 90px;
         height: 90px;
-        border-radius: 50%;
+        border-radius: 25%;
         background: #4CAF50;
         cursor: pointer;
     }

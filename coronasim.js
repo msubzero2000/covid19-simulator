@@ -51,9 +51,9 @@ function socialDistanceLabel(value) {
     }
 }
 
-let socialDistanceSlider = document.getElementById("socialDistanceSlider");
-let socialDistanceOutput = document.getElementById("socialDistanceOutput");
-socialDistanceOutput.innerHTML = socialDistanceLabel(socialDistanceSlider.value);
+let socialDistancePoorRadio = document.getElementById("sdPoorRadio");
+let socialDistanceGoodRadio = document.getElementById("sdGoodRadio");
+socialDistancePoorRadio.value = "1"
 
 let maxPersonPerSiteSlider = document.getElementById("maxPersonPerSiteSlider");
 let maxPersonPerSiteOutput = document.getElementById("maxPersonPerSiteOutput");
@@ -74,8 +74,10 @@ function restartSimulation() {
         numSickPeopleAcquired: 0
     }
 
+    var sdCompliance = (socialDistanceGoodRadio.value == "1") ? 1 : 0
+
     let config = {
-        socialDistanceCompliance: socialDistanceSlider.value,
+        socialDistanceCompliance: sdCompliance,
         numberOfSickPeople: numberOfSickPersonSlider.value, // x in 10 unit
         numPerson: 100,
         maxPersonInPlace: maxPersonPerSiteSlider.value,
@@ -151,9 +153,11 @@ function restartSimulation() {
     let sim = new CoronaSim(config, stats)
 }
 
-socialDistanceSlider.oninput = function() {
-    socialDistanceOutput.innerHTML = socialDistanceLabel(this.value);
+socialDistancePoorRadio.onclick = function() {
+    restartSimulation()
+}
 
+socialDistanceGoodRadio.onclick = function() {
     restartSimulation()
 }
 

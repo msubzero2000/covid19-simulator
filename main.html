@@ -6,7 +6,7 @@
     <title>COVID-19 Social distancing simulation at the supermarket</title>
 </head>
 <body>
-<h2>COVID-19 Social distancing simulation at the supermarket</h2>
+<h2>Covid-19 Social distance sim at the supermarket</h2>
 <div class="row">
     <div class="render">
         <canvas id="render" style="width:100%;"></canvas>
@@ -15,10 +15,12 @@
      <ul style="list-style-type:none;">
          <li>
              <div class="label">Social distance compliancy:</div>
-             <input type="range" min="0" max="1" value="0" class="slider" id="socialDistanceSlider">
-             <div class="value" id="socialDistanceOutput">
-                 50
-             </div>
+                <div class="radio-toolbar">
+                  <input type="radio" id="sdPoorRadio" class="radio" name="socialDistanceRadio" value="0" checked>
+                  <label for="sdPoorRadio" class="radioLabel">Poor</label>
+                  <input type="radio" id="sdGoodRadio" class="radio" name="socialDistanceRadio" value="1">
+                  <label for="sdGoodRadio" class="radioLabel">Good</label>
+                </div>
          </li>
          <br>
          <li>
