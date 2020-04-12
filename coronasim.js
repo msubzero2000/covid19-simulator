@@ -106,7 +106,7 @@ function restartSimulation() {
         numSickPeopleAcquired: 0
     }
 
-    var sdCompliance = (socialDistanceGoodRadio.value == "1") ? 1 : 0
+    var sdCompliance = (socialDistanceGoodRadio.checked) ? 1 : 0
 
     let config = {
         socialDistanceCompliance: sdCompliance,
