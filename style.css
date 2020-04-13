@@ -122,6 +122,13 @@ h2 {
     cursor: pointer;
 }
 
+a {
+    font-size: 12px;
+    font-family: "Arial";
+    color:darkorange;
+    text-decoration: none;
+}
+
 @media only screen and (max-device-width : 600px) {
     h2 {
         text-align: center;
@@ -186,11 +193,8 @@ h2 {
       background: #4CAF50;
       cursor: pointer;
     }
-}
 
-a {
-    font-size: 12px;
-    font-family: "Arial";
-    color:darkorange;
-    text-decoration: none;
+    a {
+        font-size: 40px;
+    }
 }
