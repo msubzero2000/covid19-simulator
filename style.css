@@ -47,6 +47,12 @@ h2 {
     font-family: "Arial";
 }
 
+.visitors {
+    font-family: "Arial";
+    font-size: 10px;
+    color:darkorange;
+}
+
 .label {
     font-family: "Arial";
     font-size: 15px;
@@ -155,6 +161,10 @@ h2 {
     }
     .value {
         font-size: 40px;
+    }
+    .visitors {
+        font-family: "Arial";
+        font-size: 30px;
     }
 
     .label {
